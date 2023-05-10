@@ -1,0 +1,11 @@
+{% from "../icon/icon.nunj" import icon %}
+
+{% macro siteLogo() %}
+	<a href="/">
+		{{ icon({
+			iconName: "logo",
+			attributes: 'width="89" height="32"'
+			})
+		}}
+	</a>
+{% endmacro %}

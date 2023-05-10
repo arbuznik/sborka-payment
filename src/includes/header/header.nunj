@@ -1,7 +1,9 @@
-{% from "../../components/menu/menu.nunj" import menu %}
+{% from "../menu/menu.nunj" import menu %}
+{% from "../../components/site-logo/site-logo.nunj" import siteLogo %}
 
-<div class="header">
-	<div class="container">
+<header class="header">
+	<div class="header-container">
+		{{ siteLogo() }}
 		{{ menu() }}
 	</div>
-</div>
+</header>

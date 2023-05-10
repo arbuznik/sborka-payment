@@ -1,0 +1,12 @@
+.magnifying-glass {
+	@extend .transition-active;
+	display: block;
+	position: relative;
+	width: 24px;
+	height: 21px;
+	fill: $primary-accent-color;
+
+	&:hover {
+		fill: $secondary-accent-color;
+	}
+}

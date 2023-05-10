@@ -1,0 +1,10 @@
+{% from "../icon/icon.nunj" import icon %}
+
+{% macro burgerBtn() %}
+	<button class="burger-button">
+		{{ icon({
+			iconName: "burger",
+			attributes: 'width="29" height="22"'
+		}) }}
+	</button>
+{% endmacro %}

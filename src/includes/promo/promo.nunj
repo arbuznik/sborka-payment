@@ -1,0 +1,11 @@
+{% from "../../components/input/input.nunj" import input %}
+{% from "../../components/button/button.nunj" import button %}
+
+<h2 class="promo__heading">Promo code</h2>
+<fieldset class="promo__controls">
+	<input type="text" maxlength="40" placeholder="Placeholder Text" aria-label="Promo code input">
+	{{ button({
+		children: "Apply",
+		htmlType: "submit"
+	}) }}
+</fieldset>

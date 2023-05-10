@@ -1,9 +1,16 @@
 .wrapper {
 	position: relative;
+	display: grid;
 }
 
-.container {
-	max-width: 980px;
+.main {
+	width: 100%;
 	margin: auto;
 	box-sizing: content-box;
+
+	@include min-screen($desktop-width) {
+		display: grid;
+		grid-template-columns: 1fr 410px;
+		min-height: calc(100vh - $header-height);
+	}
 }

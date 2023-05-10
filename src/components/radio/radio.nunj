@@ -1,0 +1,13 @@
+{% macro radio(props) %}
+	<label for="{% if props.id %}{{ props.id }}{% endif %}" class="radio-label">{{ props.labelText }}
+		<input
+			id="{% if props.id %}{{ props.id }}{% endif %}"
+			value="radio{% if props.value %}{{ props.value }}{% endif %}"
+			type="radio"
+			class="radio"
+			name="{% if props.name %}{{ props.name }}{% endif %}"
+			{% if props.checked %}checked{% endif %}
+		/>
+		<span></span>
+	</label>
+{% endmacro %}

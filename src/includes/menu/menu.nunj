@@ -1,0 +1,20 @@
+{% from "../../components/button/button.nunj" import button %}
+{% from "../../components/magnifying-glass/magnifying-glass.nunj" import magnifyingGlass %}
+{% from "../../components/cart-btn/cart-btn.nunj" import cartBtn %}
+{% from "../../components/burger-btn/burger-btn.nunj" import burgerBtn %}
+
+{% macro menu(active=false) %}
+	<nav class="menu">
+		<ul class="menu__items">
+			<li class="menu__item">
+				{{ magnifyingGlass() }}
+			</li>
+			<li class="menu__item">
+				{{ cartBtn() }}
+			</li>
+			<li class="menu__item menu__item-burger">
+				{{ burgerBtn() }}
+			</li>
+		</ul>
+	</nav>
+{% endmacro %}

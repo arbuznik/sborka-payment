@@ -1,2 +1,32 @@
 $default-transition-duration: 0.4s;
-$default-transition-function: ease-out;
+$default-transition-function: ease-in;
+
+$header-height: 81px;
+
+$mobile-width: 320px;
+$tablet-width: 768px;
+$desktop-width: 1200px;
+$desktop-hd-width: 1640px;
+
+$mobile-padding: 10px;
+$tablet-header-padding: 30px;
+$tablet-section-padding: 50px;
+$desktop-padding: 36px;
+
+$background-primary-color: #ffffff;
+$background-secondary-color: #cfcfcf;
+$background-input-color: #ededf1;
+$background-input-color-dark: #dbdbdb;
+
+$font-color-primary: #000000;
+$font-color-secondary: #555770;
+$font-color-grey: #8c8c8c;
+
+$primary-accent-color: #000000;
+$secondary-accent-color: #3366ff;
+$inactive-color: #d5d5d5;
+
+$font-size-xs: 10px;
+$font-size-s: 12px;
+$font-size-default: 14px;
+$font-size-medium: 18px;

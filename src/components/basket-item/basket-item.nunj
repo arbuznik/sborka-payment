@@ -1,0 +1,34 @@
+{% from "../icon-button/icon-button.nunj" import iconButton %}
+
+{% macro basketItem(props) %}
+	<li class="basket-item" id="{{ props.id }}">
+		<img class="basket-item__image" src="{{ props.image }}" alt="{{ props.title }}">
+		<div class="basket-item__info">
+			<p class="basket-item__title">{{ props.title }}</p>
+			<div class="basket-item__quantity">
+				<div class="basket-item__quantity-controls">
+					{{ iconButton({
+						buttonName: "decrease quantity",
+						className: "basket-item__quantity-control basket-item__quantity-control_type_minus",
+						iconName: 'minus',
+						attributes: 'width="20" height="20" fill="#000000"'
+					}) }}
+					<p class="basket-item__quantity-number">{{ props.count }}</p>
+					{{ iconButton({
+						buttonName: "increase quantity",
+						className: "basket-item__quantity-control basket-item__quantity-control_type_plus",
+						iconName: 'plus',
+						attributes: 'width="20" height="20" fill="#000000"'
+					}) }}
+				</div>
+				<p class="basket-item__price">$ <span class="basket-item__price-value">{{ props.price }}</span></p>
+			</div>
+		</div>
+		{{ iconButton({
+			buttonName: "delete item",
+			className: 'basket__item__delete-button',
+			iconName: 'cross',
+			attributes: 'width="18" height="18" fill="#CFCFCF"'
+		}) }}
+	</li>
+{% endmacro %}

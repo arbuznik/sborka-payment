@@ -1,0 +1,43 @@
+.side-menu {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	top: $header-height;
+	background-color: $background-primary-color;
+	display: none;
+
+	&__block {
+		padding: 10px;
+
+		&_middle {
+			padding: 40px 10px;
+			border-top: 1px solid $background-secondary-color;
+			border-bottom: 1px solid $background-secondary-color;
+		}
+	}
+
+	&__visible {
+		display: block;
+	}
+
+	@include min-screen(768px) {
+		width: 410px;
+		left: auto;
+		border-left: 1px solid $background-secondary-color;
+
+		&__block {
+			padding: 40px;
+
+			&_middle {
+				padding: 40px 40px;
+			}
+		}
+	}
+
+	@include min-screen(1200px) {
+		display: block;
+		position: relative;
+		top: 0;
+	}
+}

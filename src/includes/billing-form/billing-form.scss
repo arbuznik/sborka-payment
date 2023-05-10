@@ -1,0 +1,173 @@
+$input-column-gap-mobile: 5px;
+$input-column-gap-tablet: 30px;
+
+.payment-radiogroup {
+	display: flex;
+	column-gap: 22px;
+	margin: 22px 0 23px;
+}
+
+.billing-form {
+	max-width: 690px;
+
+	&__fieldset {
+		margin-bottom: 20px;
+	}
+
+	&__checkbox-options {
+		margin: 36px 0 45px;
+	}
+
+	&__payment-radiogroup {
+		margin-bottom: 24px;
+	}
+
+	&__form-controls {
+		margin: 0 0 50px;
+	}
+}
+
+.credit-card {
+	display: flex;
+	flex-direction: column;
+	max-width: 550px;
+
+	.cardholder-name-input {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.card-number-input {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		column-gap: $input-column-gap-mobile;
+
+		span {
+			grid-column: 1 / span 4;
+		}
+	}
+
+	.expire-cvv-fieldset {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		column-gap: $input-column-gap-mobile;
+	}
+
+	.expire-date-input {
+		display: flex;
+		flex-direction: column;
+
+		&__divisor {
+			width: 10px;
+		}
+
+		&__wrapper {
+			display: inline-block;
+			height: 40px;
+			width: 100%;
+			border-radius: 3px;
+			background-color: $background-input-color;
+			margin-top: 2px;
+
+			input {
+				margin-top: 0;
+				width: calc((100% - 12px) / 2);
+			}
+		}
+	}
+
+	.cvv-input {
+		display: flex;
+		flex-direction: column;
+
+		input {
+			width: 100%;
+		}
+
+		&__help {
+			content: '?';
+			position: relative;
+			display: inline-block;
+			font-size: $font-size-xs;
+			cursor: pointer;
+			text-align: center;
+			width: 13px;
+			height: 13px;
+			border-radius: 50%;
+			background-color: $background-input-color-dark;
+			color: $font-color-primary;
+
+			&::after {
+				content: 'Located on the back of the card';
+				position: absolute;
+				display: none;
+				justify-content: center;
+				align-items: center;
+				top: 0;
+				left: 20px;
+				transform: translate(0, -20%);
+				height: 20px;
+				width: max-content;
+				padding: 0 10px;
+				border: 1px solid $background-secondary-color;
+			}
+
+			&:hover {
+				background-color: $background-secondary-color;
+
+				&::after {
+					display: flex;
+				}
+			}
+		}
+	}
+}
+
+.checkbox-options {
+	display: flex;
+	flex-direction: column;
+	row-gap: 12px;
+}
+
+.form-controls {
+	display: flex;
+	justify-content: space-between;
+}
+
+@include min-screen($tablet-width) {
+	.billing-form {
+		&__checkbox-options {
+			margin: 40px 30px 40px;
+		}
+
+		&__payment-radiogroup {
+			margin: 42px calc(80px - $tablet-section-padding) 43px;
+		}
+
+		&__form-controls {
+			margin: 0 30px 50px;
+		}
+	}
+
+	.credit-card {
+		border: 1px solid $background-secondary-color;
+		box-shadow: 0px 0px 32px rgba(0, 0, 0, 0.19);
+		padding: 20px 30px 46px;
+		border-radius: 5px;
+		height: 298px;
+
+		.card-number-input {
+			column-gap: $input-column-gap-tablet;
+		}
+
+		.expire-cvv-fieldset {
+			column-gap: $input-column-gap-tablet;
+		}
+	}
+}
+
+@include min-screen($desktop-hd-width) {
+	.billing-form {
+		margin: auto;
+	}
+}

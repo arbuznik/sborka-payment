@@ -1,0 +1,11 @@
+{% from "../icon/icon.nunj" import icon %}
+
+{% macro magnifyingGlass() %}
+	<a href="#" class="magnifying-glass">
+		{{ icon({
+			iconName: "magnifying-glass",
+			attributes: 'width="24" height="24"'
+			})
+		}}
+	</a>
+{% endmacro %}

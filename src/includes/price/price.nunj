@@ -1,0 +1,18 @@
+<div class="basket-price">
+	<div class="basket-price__row">
+		<p>Subtotal</p>
+		<p>$<span class="basket-price__subtotal-value">1050</span></p>
+	</div>
+	<div class="basket-price__row">
+		<p>Tax</p>
+		<p>$<span class="basket-price__tax-value">100</span></p>
+	</div>
+	<div class="basket-price__row">
+		<p>Shipping</p>
+		<p>$<span class="basket-price__shipping-value">150</span></p>
+	</div>
+	<div class="basket-price__row">
+		<p class="basket-price__total">Total</p>
+		<p class="basket-price__total">$<span class="basket-price__total-value">1 300</span></p>
+	</div>
+</div>

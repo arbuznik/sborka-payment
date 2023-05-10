@@ -1,6 +1,7 @@
 // ======= GLOBAL =======
 @import 'constants';
 @import 'lib/base';
+@import 'lib/media';
 @import 'fonts';
 @import 'reset';
 @import 'global';
@@ -9,9 +10,25 @@
 
 // ======= COMPONENTS =======
 @import '../../components/button/button';
+@import '../../components/burger-btn/burger-button';
+@import '../../components/magnifying-glass/magnifying-glass';
+@import '../../components/cart-btn/cart-btn';
+@import '../../components/progress-bar/progress-bar';
+@import '../../components/progress-step/progress-step';
+@import '../../components/radio/radio';
+@import '../../components/checkbox/checkbox';
+@import '../../components/input/input';
+@import '../../components/basket-item/basket-item';
+@import '../../components/icon-button/icon-button';
 
 // ======= INCLUDES =======
 @import '../../includes/header/header';
+@import '../../includes/side-menu/side-menu';
+@import '../../includes/menu/menu';
+@import '../../includes/billing-form/billing-form';
+@import '../../includes/basket/basket';
+@import '../../includes/promo/promo';
+@import '../../includes/price/price';
 
 // ======= PAGES =======
 @import 'pages/main';

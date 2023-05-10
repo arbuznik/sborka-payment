@@ -9,6 +9,10 @@
 // 	overwrite: 'auto',
 // });
 
+import './main';
+import './card';
+import './basket';
+
 class ProjectApp {
 	constructor() {
 		this.env = require('./utils/env').default;

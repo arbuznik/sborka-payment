@@ -1,4 +1,27 @@
 .header {
-	padding: 20px 0;
-	background: #ccc;
+	background-color: $background-primary-color;
+	height: $header-height;
+	display: flex;
+	align-items: center;
+	border-bottom: 1px solid $background-secondary-color;
+}
+
+.header-container {
+	width: 100%;
+	padding: 0 $mobile-padding;
+	box-sizing: border-box;
+	display: flex;
+	justify-content: space-between;
+}
+
+@include min-screen($tablet-width) {
+	.header-container {
+		padding: 0 $tablet-header-padding;
+	}
+}
+
+@include min-screen($desktop-width) {
+	.header-container {
+		padding: 0 $desktop-padding;
+	}
 }

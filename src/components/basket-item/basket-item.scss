@@ -1,0 +1,29 @@
+.basket-item {
+	display: grid;
+	grid-template-columns: 100px 1fr 18px;
+	column-gap: 12px;
+
+	&__image {
+		width: 100px;
+		height: 100px;
+	}
+
+	&__info {
+		display: flex;
+		flex-direction: column;
+		row-gap: 15px;
+	}
+
+	&__quantity {
+		display: flex;
+		column-gap: 25px;
+	}
+
+	&__quantity-controls {
+		display: flex;
+		column-gap: 18px;
+	}
+
+	&__price {
+	}
+}

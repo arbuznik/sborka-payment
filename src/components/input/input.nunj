@@ -1,0 +1,12 @@
+{% macro input(props) %}
+	<label
+		class="input{% if props.className %} {{ props.className }}{% endif %}"
+		for="{% if props.id %}{{ props.id }}{% endif %}">{{ props.labelText }}
+		<input
+			id="{% if props.id %}{{ props.id }}{% endif %}"
+			{% if props.type %}type="{{ props.type }}"{% endif %}
+			{% if props.maxLength %}maxlength="{{ props.maxLength }}"{% endif %}
+			{% if props.placeholder %}placeholder="{{ props.placeholder }}"{% endif %}
+			{% if props.required %} required{% endif %}>
+	</label>
+{%  endmacro %}

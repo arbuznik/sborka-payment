@@ -1,0 +1,12 @@
+{% macro checkbox(props) %}
+	<label for="{% if props.id %}{{ props.id }}{% endif %}" class="checkbox-label"><span>{{ props.labelText }}</span>
+		<input
+			id="{% if props.id %}{{ props.id }}{% endif %}"
+			type="checkbox"
+			class="checkbox"
+			name="{% if props.name %}{{ props.name }}{% endif %}"
+			{% if props.checked %}checked{% endif %}
+		/>
+		<span></span>
+	</label>
+{% endmacro %}

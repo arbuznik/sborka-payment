@@ -1,26 +1,40 @@
 {
-	"menuItems": [
+	"paymentSteps": [
 		{
-			"name": "Menu Item 1",
-			"path": "#"
+			"number": 1,
+			"name": "Account",
+			"status": "completed"
 		},
 		{
-			"name": "Menu Item 2",
-			"path": "#"
+			"number": 2,
+			"name": "Shipping",
+			"status": "completed"
 		},
 		{
-			"name": "Menu Item 3",
-			"path": "#"
+			"number": 3,
+			"name": "Billing",
+			"status": "inProgress"
+		},
+		{
+			"number": 4,
+			"name": "Review",
+			"status": "none"
 		}
 	],
-	"someData": [
+	"basketItems": [
 		{
-			"title": "Item 1",
-			"text": "Desc 1"
+			"id": "sdf86293ye",
+			"title": "Amet minim mollit non deserunt ullamco est sit",
+			"image": "/assets/images/jacket@2x.png",
+			"price": "525",
+			"count": "1"
 		},
 		{
-			"title": "Item 2",
-			"text": "Desc 2"
+			"id": "83hsn8fg3d",
+			"title": "Amet minim mollit non",
+			"image": "/assets/images/boots@2x.png",
+			"price": "525",
+			"count": "1"
 		}
 	]
 }

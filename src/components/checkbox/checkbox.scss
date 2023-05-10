@@ -1,0 +1,55 @@
+.checkbox-label {
+	display: flex;
+	flex-direction: row-reverse;
+	column-gap: 10px;
+	cursor: pointer;
+	align-self: start;
+	color: $font-color-grey;
+	font-size: $font-size-default;
+
+	a {
+		color: $font-color-primary;
+		text-decoration: none;
+
+		&:hover {
+			color: $font-color-grey;
+		}
+	}
+
+	.checkbox {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		overflow: hidden;
+		clip-path: inset(0 0 0 0);
+
+		+ span {
+			position: relative;
+			width: 19px;
+			height: 19px;
+			border: 1px solid $background-secondary-color;
+			flex-shrink: 0;
+		}
+
+		&:checked + span {
+			background-color: $background-primary-color;
+
+			&::after {
+				content: '';
+				display: inline-block;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				width: 8px;
+				height: 8px;
+				background-color: $secondary-accent-color;
+				transform: translate(-50%, -50%);
+			}
+		}
+
+		&:focus + span,
+		&:hover + span {
+			border: 1px solid $secondary-accent-color;
+		}
+	}
+}

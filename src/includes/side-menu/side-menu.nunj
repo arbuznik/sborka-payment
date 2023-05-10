@@ -1,0 +1,11 @@
+<aside class="side-menu">
+	<div class="side-menu__block">
+		{% include "../basket/basket.nunj" %}
+	</div>
+	<div class="side-menu__block_middle">
+		{% include "../promo/promo.nunj" %}
+	</div>
+	<div class="side-menu__block">
+		{% include "../price/price.nunj" %}
+	</div>
+</aside>

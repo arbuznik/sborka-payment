@@ -1,0 +1,13 @@
+{% from "../icon/icon.nunj" import icon %}
+
+{% macro iconButton(props) %}
+	<button class="icon-button{% if props.className %} {{ props.className }}{% endif %}" aria-label="{{ props.buttonName }}">
+		{{ icon({
+			iconName: props.iconName,
+			className: "icon",
+			attributes: props.attributes
+		}) }}
+	</button>
+{% endmacro %}
+
+

@@ -1,0 +1,20 @@
+label {
+	font-size: $font-size-s;
+	color: $font-color-secondary;
+}
+
+input[type='text'],
+input[type='password'] {
+	height: 40px;
+	border: none;
+	outline: none;
+	background-color: $background-input-color;
+	border-radius: 3px;
+	padding: 0 10px;
+	margin-top: 2px;
+
+	&:focus,
+	&:focus-visible {
+		border: 1px solid $secondary-accent-color;
+	}
+}

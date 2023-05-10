@@ -1,0 +1,53 @@
+.progress-step {
+	display: flex;
+	align-items: center;
+	position: relative;
+
+	&:not(:first-child) {
+		width: 100%;
+	}
+
+	&:not(:first-child)::before {
+		content: '';
+		display: block;
+		width: 100%;
+		background-color: $secondary-accent-color;
+		height: 2px;
+	}
+
+	&_inactive:not(:first-child)::before {
+		background-color: $inactive-color;
+	}
+
+	&__number {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-shrink: 0;
+		width: 18px;
+		height: 18px;
+		background-color: $secondary-accent-color;
+		border-radius: 50%;
+		font-size: $font-size-xs;
+		color: $background-primary-color;
+
+		&_inactive {
+			background-color: $background-primary-color;
+			border: 1px solid $inactive-color;
+			color: $inactive-color;
+		}
+
+		&_inprogress {
+			background-color: $background-primary-color;
+			border: 1px solid $secondary-accent-color;
+			color: $primary-accent-color;
+		}
+	}
+
+	&__name {
+		position: absolute;
+		top: 25px;
+		right: 0;
+		transform: translate(30%);
+	}
+}

@@ -69,9 +69,7 @@
 }
 
 .transition-active {
-	transition: color $default-transition-duration $default-transition-function,
-		background $default-transition-duration $default-transition-function,
-		border-color $default-transition-duration $default-transition-function;
+	transition: all $default-transition-duration $default-transition-function;
 }
 
 .transition-hover {

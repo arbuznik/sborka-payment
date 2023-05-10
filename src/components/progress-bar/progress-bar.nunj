@@ -1,0 +1,9 @@
+{% from "../progress-step/progress-step.nunj" import progressStep %}
+
+{% macro progressBar() %}
+	<ol class="progress-bar">
+		{% for step in paymentSteps %}
+			{{ progressStep(step) }}
+		{% endfor %}
+	</ol>
+{% endmacro %}

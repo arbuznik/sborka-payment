@@ -1,0 +1,13 @@
+.icon-button {
+	border: none;
+	background-color: $background-primary-color;
+	width: max-content;
+	height: max-content;
+	cursor: pointer;
+
+	&:hover {
+		svg {
+			fill: $secondary-accent-color;
+		}
+	}
+}

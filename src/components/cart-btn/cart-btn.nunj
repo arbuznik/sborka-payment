@@ -1,0 +1,11 @@
+{% from "../icon/icon.nunj" import icon %}
+
+{% macro cartBtn() %}
+	<a href="#" class="cart-btn">
+		{{ icon({
+			iconName: "cart",
+			attributes: 'width="24" height="21"'
+		}) }}
+		<span class="cart-btn__counter">2</span>
+	</a>
+{% endmacro %}

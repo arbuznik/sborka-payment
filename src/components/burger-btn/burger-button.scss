@@ -1,0 +1,20 @@
+.burger-button {
+	@extend .transition-active;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: none;
+	background-color: $background-primary-color;
+	fill: $primary-accent-color;
+	color: $primary-accent-color;
+	cursor: pointer;
+
+	&:hover {
+		fill: $secondary-accent-color;
+		color: $secondary-accent-color;
+	}
+
+	&:focus {
+		border: 1x solid $secondary-accent-color;
+	}
+}

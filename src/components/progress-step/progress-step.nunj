@@ -1,0 +1,6 @@
+{% macro progressStep(step) %}
+	<li class="progress-step{% if step.status === 'none' %} progress-step_inactive{% endif %}">
+		<span class="progress-step__number{% if step.status === 'none' %} progress-step__number_inactive{% endif %}{% if step.status === 'inProgress' %} progress-step__number_inprogress{% endif %}">{{ step.number }}</span>
+		<span class="progress-step__name">{{ step.name }}</span>
+	</li>
+{% endmacro %}

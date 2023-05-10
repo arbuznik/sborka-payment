@@ -1,0 +1,84 @@
+{% from "../../components/radio/radio.nunj" import radio %}
+{% from "../../components/checkbox/checkbox.nunj" import checkbox %}
+{% from "../../components/button/button.nunj" import button %}
+{% from "../../components/input/input.nunj" import input %}
+
+<form class="billing-form">
+	<fieldset class="payment-radiogroup billing-form__payment-radiogroup">
+		{{ radio({
+			id: "credit-card",
+			name: "payment",
+			value: "Credit card",
+			labelText: "Pay with Credit Card",
+			checked: true
+		}) }}
+
+		{{ radio({
+			id: "paypal",
+			name: "payment",
+			value: "PayPal",
+			labelText: icon({
+				iconName: "paypal-logo",
+				attributes: 'width="85" height="23"'
+			})
+		}) }}
+	</fieldset>
+	<fieldset class="credit-card">
+		{{ input({
+			id: "cardholder-name",
+			className: "cardholder-name-input billing-form__fieldset",
+			labelText: "Name on card",
+			type: "text",
+			maxLength: 60,
+			placeholder: "Cardholder name",
+			required: true
+		}) }}
+
+		<label class="card-number-input billing-form__fieldset" for="card-number-chunk-1"><span>Card number</span>
+			<input id="card-number-chunk-1" type="text" pattern="[0-9]{4}" size="4" maxlength="4" required>
+			<input id="card-number-chunk-2" type="text" pattern="[0-9]{4}" size="4" maxlength="4" required>
+			<input id="card-number-chunk-3" type="text" pattern="[0-9]{4}" size="4" maxlength="4" required>
+			<input id="card-number-chunk-4" type="text" pattern="[0-9]{4}" size="4" maxlength="4" required>
+		</label>
+
+		<fieldset class="expire-cvv-fieldset billing-form__fieldset">
+			<label class="expire-date-input" for="expire-date">Expire date
+				<span class="expire-date-input__wrapper">
+					<input id="expire-date-chunk-1" type="text" pattern="[0-9]{2}" size="2" maxlength="2" required>
+					<span class="expire-date-input__divisor">/</span>
+					<input id="expire-date-chunk-2" type="text" pattern="[0-9]{2}" size="2" maxlength="2" required>
+				</span>
+			</label>
+
+			<label class="cvv-input" for="cvv"><span>CVV code <span class="cvv-input__help">?</span></span>
+				<input id="cvv" type="password" pattern="[0-9]{3}" size="3" maxlength="3" required>
+			</label>
+		</fieldset>
+	</fieldset>
+
+	<fieldset class="checkbox-options billing-form__checkbox-options">
+		{{ checkbox({
+			id: "save-info-checkbox",
+			labelText: "Save information of this credit card",
+			checked: true
+		}) }}
+
+		{{ checkbox({
+			id: "accept-terms-checkbox",
+			labelText: "I accept the <a href='#'>terms and conditions</a> and the <a href='#'>Privacy Policies</a>"
+		}) }}
+	</fieldset>
+
+	<fieldset class="form-controls billing-form__form-controls">
+		{{ button({
+			htmlType: "button",
+			type: "secondary",
+			children: "Back"
+		}) }}
+
+		{{ button({
+			htmlType: "submit",
+			children: "Check Out"
+		}) }}
+	</fieldset>
+</form>
