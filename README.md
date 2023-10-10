@@ -1,121 +1,95 @@
 # SP.Starter
 
-**Шаблон проекта для быстрого старта. Работает на Node 16+.**
+**Quick start project template**
 
-## Старт проекта
+## Start the project.
 
-#### 1. Установить зависимости:
+#### 1. Set dependancies:
 
-с помощью yarn (быстрее)
+It's faster to use yarn
 
 ```
 yarn install
 ```
 
-или с помощью npm (медленнее):
+or npm (bit slower)
 
 ```
 npm install
 ```
 
-#### 2. Запустить Gulp для разработки:
+#### 2. Launch Gulp for development
 
 ```
 npm start
 ```
 
-#### 3. Открыть следующий URL - [`http://localhost:9000/`](http://localhost:9000/).
+#### 3. Open [`http://localhost:9000/`](http://localhost:9000/)
 
-## Команды
+## Commands
 
-#### Запустить проект для разработки:
+#### Launch the project
 
 ```
 npm start
 ```
 
-#### Собрать проект для продакшена:
+#### Assemble the project
 
 ```
 npm run build
 ```
 
-#### Создание архива `build.zip` для продакшена:
+#### Make a build.zip
 
 ```
 npm run zip
 ```
 
-## Структура проекта
+## Project Structure
 
-Не обязательно разделять интерфейс на отдельные части и компоненты, но это эффективный подход по многим причинам.
+It's not mandatory but considered effective for many reasons to decompose the UI into separate, less coupled components.
 
-Создавайте компоненты по крайней мере для тех частей интерфейса, которые появляются в нескольких местах вашего проекта. Это могут быть кнопки, общие разделы страницы, виджеты, слайдеры и так далее.
+Create components at least for the parts of the UI that appear in multiple places of your project. It can be buttons, common page sections, widgets, sliders and so on.
 
-Этот стартер позволяет хранить разметку, стили и код JavaScript для компонента в одной папке, а затем использовать их в нескольких местах. Пожалуйста, посмотрите примеры в папке `src/includes/`.
+It is recommended that you will keep your components inside the `src/components/` folder. This starter kit allows you to keep your markup, styles, and JavaScript code for a component in one folder and then to use them in multiple places. Please, see the `src/components/` folder for examples. Notice how different types of components are arranged. Also, It is not absolutely mandatory to include Nunjucks or JS code for a component if you feel that it doesn't make too much sense. For example, when the markup is quite simple or when a component doesn't have JS logic.
 
-Необходимо отличать простые компоненты от макро-компонентов, которые могут принимать параметры.
+## HTML template engine Nunjucks
 
-Так называемые инклуды или простые компоненты рекомендуется хранить в папке `src/includes/`. Такие части в дальнейшем можно добавлять на страницы и в шаблоны с помощью `{% include '../includes/some-component/some-component.nunj' %}`.
+[Nunjucks](https://mozilla.github.io/nunjucks/) - is a full featured templating engine inspired by jinja2, which helps to create qualified and easy-to-maintain HTML code.
 
-Компоненты которые могут принимать параметры рекомендуется хранить в папке `src/components/`.
-Пример макро-компонента `icon`:
+Nunjucks-templates are in `src/templates/`.
 
-```
-{% macro icon(props) %}
-	<svg {% if props.className %}class="{{ props.className }}"{% endif %}{% if props.attr %} {{ props.attr }}{% endif %}>
-		<use xlink:href="#icon-{{ props.iconName }}" />
-	</svg>
-{% endmacro %}
-```
-Такой компонент можно импортировать и использовать в нескольких местах:
-
-```
-{% from "../../components/icon/icon.nunj" import icon %}
-
-{{ icon({
-	iconName: 'chat',
-	className: 'icon',
-	attr: 'viewBox="0 0 20 20" style="width: 40px; height: 40px; fill: #212121;"'
-}) }}
-```
-
- Кроме того, необязательно включать код Nunjucks или JS для компонента, если вы чувствуете, что в этом нет особого смысла. Например, когда разметка довольно простая или когда в компоненте нет логики JS.
-
-## HTML-шаблонизатор Nunjucks
-
-[Nunjucks](https://mozilla.github.io/nunjucks/) - мощный шаблонизатор с синтаксисом а-ля jinja2, который позволяет создавать качественный, легкоподдерживаемый HTML-код.
-
-Nunjucks-шаблоны находятся в `src/templates/`.
-
-Данные, которые могут быть использованы в нескольких местах, следует складывать в файл `global-data.json`, который находится в корне проекта. После этого к ним можно обращаться в шаблонах:
+Data that can be used in several places should be added to the file `global-data.json`, which is located in the root of the project. After that, you can access it in the templates:
 
 ```
 <p>Some title: {{ someData[0].title }}</p>
 ```
 
-Шаблоны страниц, которые должны быть скомпилированы в папку `build/`, кладём в папку `src/pages/`
+The page templates that should be compiled into the `build/` folder are put in the `src/templates/pages` folder
 
-Кастомные фильтры, макросы и функции складываем в соответствующих файлах в `src/templates/lib/`.
+We add custom filters, macros and functions in the corresponding files in `src/templates/lib`.
 
-Для эффективного применения шаблонизатора см. примеры в стартовом проекте, а также [документацию](https://mozilla.github.io/nunjucks/templating.html).
+Inclusions are in `src / templates / parts` with the `_` prefix. For example, `src/ templates/parts/_sidebar.nunj`.
 
-Для настройки синтаксиса в редакторах (Sublime, Webstorm) скачиваем плагин для шаблонизатора Twig и настраиваем открытие файлов с расширением .nunj с подстветкой Twig по умолчанию.
+For effective use of the template engine, see the examples in the starter project, as well as [documentation](https://mozilla.github.io/nunjucks/templating.html).
+
+To configure the syntax in the editors (Sublime, Webstorm), download the plugin for the Twig template engine and configure the opening of .nunj files with Twig highlighting by default.
 
 ## Webpack Hot Module Replacement
 
-В SP.Starter настроен [Webpack HMR](https://webpack.js.org/concepts/hot-module-replacement/). По умолчанию при изменении в JS файле происходит замена этого модуля и всех его зависимостей.
+[Webpack HMR] is configured in SP.Starter (https://webpack.js.org/concepts/hot-module-replacement/). By default, when changing a JS file, this module and all its dependencies are replaced.
 
-<b>Важно!</b> Для корректной работы необходимо правильно обрабатывать side-эффекты, которые генерирует ваш код.
+<b>Important!</b> To work correctly, you need to properly handle the side-effects that your code generates.
 
-Например, если есть код, добавляющий обработчик на событие клика:
+For example, if there is code adding a handler to the click event:
 
-`document.body.addEventListener('click', this.someMethod);`
+`document.body.addEventListener ('click', this.someMethod);`
 
-То прямо в коде необходимо добавить следующую инструкцию для Webpack:
+Then, in the code, you need to add the following instruction for Webpack:
 
 ```
-// Удаляем обработчик события, чтобы после повторного исполнения предыдущего кода этот обработчик не был добавлен повторно.
+// Delete the event handler, so that after repeated execution of the previous code this handler will not be added again.
 if (module.hot) {
 	module.hot.dispose(() => {
 		document.body.removeEventListener('click', this.someMethod);
@@ -123,52 +97,52 @@ if (module.hot) {
 }
 ```
 
-В противном случае, обработчик на клик будет добавляться при каждом обновлении, генерируемом с помощью HMR.
+Otherwise, a click-on handler will be added with every update generated by the HMR.
 
-Таким же образом надо поступать и с изменением DOM-дерева:
+You must do the same with changing of the DOM tree:
 
 ```
-var sideEffectNode = document.createElement("div");
+var sideEffectNode = document.createElement ("div");
 sideEffectNode.textContent = "Side Effect";
-document.body.appendChild(sideEffectNode);
+document.body.appendChild (sideEffectNode);
 ```
 
-Добавляем:
+Add:
 
 ```
-// Удаляем <div>, добавленный в DOM, чтобы после исполнения предыдущего кода этот <div> не был добавлен повторно.
+// Delete the <div> added to the DOM so after executing the previous code this <div> is not added again.
 if (module.hot) {
-  module.hot.dispose(function() {
-    sideEffectNode.parentNode.removeChild(sideEffectNode);
-  });
+  module.hot.dispose(function () {
+    sideEffectNode.parentNode.removeChild(sideEffectNode);
+  });
 }
 ```
 
-## Структура SCSS-файлов
+## SCSS files structure
 
-В Стартере существует следующая структура SCSS-файлов:
+The following structure of SCSS files exists in Starter:
 
 ```
 /styles/
-	/lib/				// Библиотеки и миксины
-	/pages/				// Стили для страниц проекта
-		_main.scss		// Стили для главной страницы
-	_constants.scss		// Переменные и константы
-	_controls.scss		// Стили для контролов
-	_fonts.scss			// Подключаемые шрифты
-	_global.scss		// Стили глобальных блоков
-	_layout.scss		// Стили лэйаута
-	_reset.scss			// CSS-reset и обнуление стилей
-	styles.scss			// Основной файл, который компилируется в styles.css
+	/lib/			// Libraries and Mixins
+	/pages/			// Styles for project pages
+		_main.scss	// Styles for the main page
+	_constants.scss	// Variables and constants
+	_controls.scss	// Styles for controls
+	_fonts.scss		// Plug-in fonts
+	_global.scss	// Global Blocks Styles
+	_layout.scss	// Layout styles
+	_reset.scss		// CSS-reset and nulling styles
+	styles.scss		// The main file that compiles into styles.css
 ```
 
-Для каждой страницы создается отдельный файл в папке `pages`. Для каждого компонента создается отдельный файл в папке `src/components/<components_name>`.
+A separate file is created for each page in the `pages` folder. A separate file is created for each component in the `src/components/<components_name>` folder.
 
-Все подключаемые файлы должны начинаться с одного подчеркивания (`_`).
+All included files must begin with a single underscore (`_`).
 
-## SVG-спрайты
+## SVG sprites
 
-В стартовом проекте настроена возможность создания SVG-спрайтов с помощью [gulp-svgstore](https://github.com/w0rm/gulp-svgstore), поэтому SVG на сайт лучше добавлять, используя компонент `icon`, следующим способом:
+The ability to create SVG sprites with the help of [gulp-svgstore](https://github.com/w0rm/gulp-svgstore) is configured in the starter project, so it is better to add SVG to the site using the component `icon` in the following way:
 
 ```
 {{ icon({
@@ -178,41 +152,39 @@ if (module.hot) {
 }) }}
 ```
 
-Свойства `className` и `attributes` указывать необязательно. SVG-файл `some-vector-image.svg` должен находиться в папке `src/assets/svg/`. Такому элементу необходимо задать width и height в стилях. Ему также можно менять fill, stroke при условии, что в исходном файле `some-vector-image.svg` у элемента не заданы такие же атрибуты (fill и stroke).
+The properties `className` and` attributes` are optional. The SVG file `some-vector-image.svg` should be in the folder `src/assets/svg/`. Width and height must be set in styles for such element. You can also change fill, stroke, but the element should not have the same attributes (fill and stroke) in the source file `some-vector-image.svg`.
 
-**Обратите внимание на то, что при подключении svg-спрайта в компоненте `icon` используется `#icon-` префикс в пути до спрайта: `#icon-some-vector-image` (фактически будет использован `some-vector-image.svg`).**
+**Please note that when connecting the svg sprite in the component `icon`, the `#icon-` prefix in the path to the sprite is used: `#icon-some-vector-image` (in fact,`some-vector-image.svg` will be used).**
 
-## Растровые спрайты
+## Raster Sprites
 
-Для создания простого спрайта из изображений нужно использовать миксин
+To create a simple sprite of images you need to use a mixin.
 
 ```
 +s(name)
 ```
 
-Следующий миксин для спрайта под ретину. Для него необходимо использовать 2 изображения: простое и в 2 раза больше. Например: `sp.png` и `sp@2x.png`.
+The next mixin for sprite for retina. You need to use 2 images: simple and 2 times bigger. For example: `sp.png` and `sp@2x.png`.
 
 ```
 +sr(name)
 ```
 
-Изображения, которые собираются в спрайт, должны быть в формате `.png` и находится в директории `assets/images/sprites/`.
+Images that are collected in the sprite must be in `.png` format and located in the `assets/images/sprites/` directory.
 
-## Инлайн картинок или SVG
+## Inline of pictures or SVG
 
-Инлайн картинок или SVG можно использовать для мелких иконок на странице, но не для всей графики. Стоит помнить, что при инлайне размер файла графики увеличивается, т.к. он конвертируется в base64.
+<b>Pay attention!</b> Images to be inline should be in the `src/assets/images/inline` directory.
 
-<b>Внимание!</b> Изображения, которые будут инлайниться, должны находится в директории `src/assets/images/inline`.
+### IN SCSS
 
-### В SCSS
-
-Плагин postcss-assets позволяет инлайнить изображения прямо в код в Base64 кодировке (или в виде кода в случае с SVG):
+The postcss-assets plugin allows you to inline images directly into Base64 (or as code in the case of SVG):
 
 ```
 background: inline('sp.png')
 ```
 
-Так же позволяет подставить размеры картинки:
+It also allows you to put image sizes:
 
 ```
 width: width('sp.png')
@@ -226,16 +198,14 @@ height: height('sp.png')
 background-size: size('sp.png')
 ```
 
-### В Nunjucks-шаблонах
+### In Nunjucks Templates
 
 ```
 <img src={% inline 'image.png' %} alt="Some image" />
 ```
 
-## Полезные ссылки
+## Useful links
 
-[Синтаксис Nunjucks](https://mozilla.github.io/nunjucks/templating.html).
+[Nunjucks syntax](https://mozilla.github.io/nunjucks/templating.html).
 
-[Сборка фронтенд-проекта с помощью Gulp](http://habrahabr.ru/post/250569/).
-
-[Адаптивная сетка Twitter Bootstrap](http://getbootstrap.com/css/#grid).
+[Twitter Bootstrap responsive grid](http://getbootstrap.com/css/#grid).

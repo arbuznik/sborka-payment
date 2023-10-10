@@ -4,7 +4,7 @@
   "description": "Boilerplate for html+js+css apps",
   "repository": {
     "type": "git",
-    "url": "https://github.com/sborkaproject/SP.Starter"
+    "url": "https://github.com/arbuznik/sborka-payment"
   },
   "scripts": {
     "start": "gulp",

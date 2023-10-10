@@ -24,14 +24,14 @@
 	"basketItems": [
 		{
 			"id": "sdf86293ye",
-			"title": "Amet minim mollit non deserunt ullamco est sit",
+			"title": "Stylish orange jacket for better looks",
 			"image": "/assets/images/jacket@2x.png",
 			"price": "525",
 			"count": "1"
 		},
 		{
 			"id": "83hsn8fg3d",
-			"title": "Amet minim mollit non",
+			"title": "Works great with the jacket",
 			"image": "/assets/images/boots@2x.png",
 			"price": "525",
 			"count": "1"
